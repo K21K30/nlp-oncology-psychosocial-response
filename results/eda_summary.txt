@@ -1,0 +1,12 @@
+EDA SUMMARY - oncology distress/response corpus
+=======================================================
+model-ready records: 1273
+
+response balance: {'anxiety': 458, 'sadness': 177, 'anger': 90, 'hope': 201, 'guilt': 234, 'denial': 57, 'acceptance': 56}
+distress balance: {'low': 333, 'medium': 694, 'high': 246}
+
+message length (words): min 4 median 31 mean 33.1 max 107
+
+split sizes: {'train_A': 359, 'train_B': 434, 'train_C': 1161, 'validation': 45, 'test': 67}
+
+attributes summarized: ['role', 'stage', 'cancer_type', 'tone', 'channel', 'age_group']

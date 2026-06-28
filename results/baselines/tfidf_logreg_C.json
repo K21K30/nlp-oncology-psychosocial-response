@@ -1,0 +1,137 @@
+{
+  "accuracy": 0.835820895522388,
+  "macro_f1": 0.7868036725179582,
+  "weighted_f1": 0.8172434530643486,
+  "minority_macro_f1": 0.7063492063492064,
+  "per_class": {
+    "anxiety": {
+      "precision": 0.7333333333333333,
+      "recall": 1.0,
+      "f1": 0.8461538461538461,
+      "support": 11,
+      "predicted_count": 15
+    },
+    "sadness": {
+      "precision": 0.7272727272727273,
+      "recall": 0.8888888888888888,
+      "f1": 0.8,
+      "support": 9,
+      "predicted_count": 11
+    },
+    "anger": {
+      "precision": 1.0,
+      "recall": 0.8181818181818182,
+      "f1": 0.9,
+      "support": 11,
+      "predicted_count": 9
+    },
+    "hope": {
+      "precision": 0.7692307692307693,
+      "recall": 0.9090909090909091,
+      "f1": 0.8333333333333334,
+      "support": 11,
+      "predicted_count": 13
+    },
+    "guilt": {
+      "precision": 0.9090909090909091,
+      "recall": 0.9090909090909091,
+      "f1": 0.9090909090909091,
+      "support": 11,
+      "predicted_count": 11
+    },
+    "denial": {
+      "precision": 1.0,
+      "recall": 0.875,
+      "f1": 0.9333333333333333,
+      "support": 8,
+      "predicted_count": 7
+    },
+    "acceptance": {
+      "precision": 1.0,
+      "recall": 0.16666666666666666,
+      "f1": 0.2857142857142857,
+      "support": 6,
+      "predicted_count": 1
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "anxiety",
+      "sadness",
+      "anger",
+      "hope",
+      "guilt",
+      "denial",
+      "acceptance"
+    ],
+    "rows_true_cols_pred": [
+      [
+        11,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        8,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        9,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        10,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        7,
+        0
+      ],
+      [
+        1,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "n": 67,
+  "baseline": "tfidf_logreg",
+  "train_tag": "C",
+  "weighted": true
+}

@@ -1,0 +1,41 @@
+============================================================
+SPLIT BUILD (test/val from strict only)
+============================================================
+strict=471  silver=75  consensus=727
+
+strict per class:
+  anxiety     116
+  sadness     39
+  anger       53
+  hope        94
+  guilt       110
+  denial      35
+  acceptance  24
+
+TEST: 67   VALIDATION: 45
+test per class (support):
+  anxiety     11
+  sadness     9
+  anger       11
+  hope        11
+  guilt       11
+  denial      8
+  acceptance  6
+
+Train sizes:  A=359  B=434  C=1161
+
+train_A response counts: anxiety=98, sadness=23, anger=35, hope=76, guilt=92, denial=21, acceptance=14
+train_A class weights:  anxiety=0.52, sadness=2.23, anger=1.47, hope=0.67, guilt=0.56, denial=2.44, acceptance=3.66
+
+train_B response counts: anxiety=118, sadness=31, anger=44, hope=83, guilt=116, denial=23, acceptance=19
+train_B class weights:  anxiety=0.53, sadness=2.00, anger=1.41, hope=0.75, guilt=0.53, denial=2.70, acceptance=3.26
+
+train_C response counts: anxiety=440, sadness=161, anger=72, hope=183, guilt=216, denial=43, acceptance=46
+train_C class weights:  anxiety=0.38, sadness=1.03, anger=2.30, hope=0.91, guilt=0.77, denial=3.86, acceptance=3.61
+
+============================================================
+Notes:
+- test/val are strict-only; report per-class F1 + support (small classes unstable).
+- minority macro-F1 = mean(F1 anger, denial, acceptance) as extra diagnostic.
+- next: human-check the whole test.jsonl (text+rubric only), then train A/B/C.
+============================================================

@@ -1,0 +1,70 @@
+{
+  "macro_f1": 0.8054306180243213,
+  "weighted_kappa_linear": 0.7761692650334076,
+  "mean_abs_ordinal_error": 0.1791044776119403,
+  "accuracy": 0.8208955223880597,
+  "weighted_f1": 0.8246697546749014,
+  "exact_count": 55,
+  "adjacent_error_count": 12,
+  "severe_error_count": 0,
+  "adjacent_error_rate": 0.1791044776119403,
+  "severe_error_rate": 0.0,
+  "per_level": {
+    "low": {
+      "precision": 0.5882352941176471,
+      "recall": 0.7692307692307693,
+      "f1": 0.6666666666666666,
+      "support": 13,
+      "predicted_count": 17
+    },
+    "medium": {
+      "precision": 0.8518518518518519,
+      "recall": 0.7419354838709677,
+      "f1": 0.7931034482758621,
+      "support": 31,
+      "predicted_count": 27
+    },
+    "high": {
+      "precision": 0.9565217391304348,
+      "recall": 0.9565217391304348,
+      "f1": 0.9565217391304348,
+      "support": 23,
+      "predicted_count": 23
+    }
+  },
+  "off_diagonal_cells": {
+    "medium->low": 7,
+    "low->medium": 3,
+    "high->medium": 1,
+    "medium->high": 1,
+    "low->high": 0,
+    "high->low": 0
+  },
+  "confusion_matrix": {
+    "labels": [
+      "low",
+      "medium",
+      "high"
+    ],
+    "rows_true_cols_pred": [
+      [
+        10,
+        3,
+        0
+      ],
+      [
+        7,
+        23,
+        1
+      ],
+      [
+        0,
+        1,
+        22
+      ]
+    ]
+  },
+  "n": 67,
+  "baseline": "tfidf_nominal",
+  "train_tag": "B"
+}

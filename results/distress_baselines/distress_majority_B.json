@@ -1,0 +1,71 @@
+{
+  "macro_f1": 0.2108843537414966,
+  "weighted_kappa_linear": 0.0,
+  "mean_abs_ordinal_error": 0.5373134328358209,
+  "accuracy": 0.4626865671641791,
+  "weighted_f1": 0.29272007310386844,
+  "exact_count": 31,
+  "adjacent_error_count": 36,
+  "severe_error_count": 0,
+  "adjacent_error_rate": 0.5373134328358209,
+  "severe_error_rate": 0.0,
+  "per_level": {
+    "low": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 13,
+      "predicted_count": 0
+    },
+    "medium": {
+      "precision": 0.4626865671641791,
+      "recall": 1.0,
+      "f1": 0.6326530612244898,
+      "support": 31,
+      "predicted_count": 67
+    },
+    "high": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 23,
+      "predicted_count": 0
+    }
+  },
+  "off_diagonal_cells": {
+    "medium->low": 0,
+    "low->medium": 13,
+    "high->medium": 23,
+    "medium->high": 0,
+    "low->high": 0,
+    "high->low": 0
+  },
+  "confusion_matrix": {
+    "labels": [
+      "low",
+      "medium",
+      "high"
+    ],
+    "rows_true_cols_pred": [
+      [
+        0,
+        13,
+        0
+      ],
+      [
+        0,
+        31,
+        0
+      ],
+      [
+        0,
+        23,
+        0
+      ]
+    ]
+  },
+  "n": 67,
+  "baseline": "majority",
+  "train_tag": "B",
+  "predicts": "medium"
+}

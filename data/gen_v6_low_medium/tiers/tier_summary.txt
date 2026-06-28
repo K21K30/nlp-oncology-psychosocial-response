@@ -1,0 +1,41 @@
+============================================================
+TIER ASSIGNMENT SUMMARY
+============================================================
+Source: data\gen_v6_low_medium\merged\candidates.jsonl
+Total candidates read:        2033
+
+  strict_intended            471
+  silver_intended             75
+  consensus_relabelled       727
+  review_only                752
+  needs_rejudging              8
+
+Valid audited corpus (excl. needs_rejudging): 2025
+Model-ready (strict+silver+consensus):        1273
+  - of which STRICT (test-eligible):          471
+
+Corpus >= 2000 already (2025). No more generation needed for the count.
+
+final_* label distribution in model-ready set:
+  anxiety    / medium : 273
+  guilt      / medium : 153
+  hope       / low    : 128
+  sadness    / medium : 119
+  anxiety    / high   : 113
+  anxiety    / low    : 72
+  hope       / medium : 69
+  acceptance / low    : 55
+  anger      / medium : 49
+  guilt      / high   : 41
+  guilt      / low    : 40
+  anger      / high   : 38
+  sadness    / high   : 37
+  denial     / medium : 30
+  sadness    / low    : 21
+  denial     / low    : 14
+  denial     / high   : 13
+  hope       / high   : 4
+  anger      / low    : 3
+  acceptance / medium : 1
+============================================================
+Files written to: data\gen_v6_low_medium\tiers

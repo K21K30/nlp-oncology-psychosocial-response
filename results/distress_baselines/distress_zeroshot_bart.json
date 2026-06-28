@@ -1,0 +1,69 @@
+{
+  "macro_f1": 0.4683977455716586,
+  "weighted_kappa_linear": 0.3232323232323233,
+  "mean_abs_ordinal_error": 0.5373134328358209,
+  "accuracy": 0.5223880597014925,
+  "weighted_f1": 0.4731325257769125,
+  "exact_count": 35,
+  "adjacent_error_count": 28,
+  "severe_error_count": 4,
+  "adjacent_error_rate": 0.417910447761194,
+  "severe_error_rate": 0.05970149253731343,
+  "per_level": {
+    "low": {
+      "precision": 1.0,
+      "recall": 0.23076923076923078,
+      "f1": 0.375,
+      "support": 13,
+      "predicted_count": 3
+    },
+    "medium": {
+      "precision": 0.6,
+      "recall": 0.2903225806451613,
+      "f1": 0.391304347826087,
+      "support": 31,
+      "predicted_count": 15
+    },
+    "high": {
+      "precision": 0.46938775510204084,
+      "recall": 1.0,
+      "f1": 0.6388888888888888,
+      "support": 23,
+      "predicted_count": 49
+    }
+  },
+  "off_diagonal_cells": {
+    "medium->low": 0,
+    "low->medium": 6,
+    "high->medium": 0,
+    "medium->high": 22,
+    "low->high": 4,
+    "high->low": 0
+  },
+  "confusion_matrix": {
+    "labels": [
+      "low",
+      "medium",
+      "high"
+    ],
+    "rows_true_cols_pred": [
+      [
+        3,
+        6,
+        4
+      ],
+      [
+        0,
+        9,
+        22
+      ],
+      [
+        0,
+        0,
+        23
+      ]
+    ]
+  },
+  "n": 67,
+  "baseline": "zeroshot_bart_2tmpl"
+}

@@ -1,0 +1,137 @@
+{
+  "accuracy": 0.16417910447761194,
+  "macro_f1": 0.040293040293040296,
+  "weighted_f1": 0.04630692690394183,
+  "minority_macro_f1": 0.0,
+  "per_class": {
+    "anxiety": {
+      "precision": 0.16417910447761194,
+      "recall": 1.0,
+      "f1": 0.28205128205128205,
+      "support": 11,
+      "predicted_count": 67
+    },
+    "sadness": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 9,
+      "predicted_count": 0
+    },
+    "anger": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 11,
+      "predicted_count": 0
+    },
+    "hope": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 11,
+      "predicted_count": 0
+    },
+    "guilt": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 11,
+      "predicted_count": 0
+    },
+    "denial": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 8,
+      "predicted_count": 0
+    },
+    "acceptance": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 6,
+      "predicted_count": 0
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "anxiety",
+      "sadness",
+      "anger",
+      "hope",
+      "guilt",
+      "denial",
+      "acceptance"
+    ],
+    "rows_true_cols_pred": [
+      [
+        11,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        9,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        11,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        11,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        11,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        6,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "n": 67,
+  "baseline": "majority",
+  "train_tag": "A",
+  "predicts": "anxiety"
+}

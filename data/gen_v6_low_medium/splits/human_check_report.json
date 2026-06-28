@@ -1,0 +1,381 @@
+{
+  "created_at_utc": "2026-06-27T14:01:58.322799+00:00",
+  "test_file": "data\\gen_v6_low_medium\\splits\\test.jsonl",
+  "test_file_sha256": "0299203912c41485efd58fbcd04e146dbbf023c7a26f3c6bc331b11c16bcd516",
+  "annotations_file": "data\\gen_v6_low_medium\\splits\\human_annotations_kt.jsonl",
+  "coverage": {
+    "test_items": 67,
+    "annotated_items": 67,
+    "missing_items": 0,
+    "missing_item_ids": []
+  },
+  "human_vs_strict": {
+    "n": 67,
+    "response": {
+      "exact_agreement_count": 58,
+      "exact_agreement": 0.8656716417910447,
+      "cohen_kappa": 0.8426819723454213,
+      "ambiguous_count": 28,
+      "ambiguous_rate": 0.417910447761194,
+      "mean_human_confidence": 4.074626865671642,
+      "per_class_agreement": {
+        "anxiety": {
+          "support": 11,
+          "agreements": 11,
+          "agreement_rate": 1.0
+        },
+        "sadness": {
+          "support": 9,
+          "agreements": 9,
+          "agreement_rate": 1.0
+        },
+        "anger": {
+          "support": 11,
+          "agreements": 5,
+          "agreement_rate": 0.45454545454545453
+        },
+        "hope": {
+          "support": 11,
+          "agreements": 10,
+          "agreement_rate": 0.9090909090909091
+        },
+        "guilt": {
+          "support": 11,
+          "agreements": 11,
+          "agreement_rate": 1.0
+        },
+        "denial": {
+          "support": 8,
+          "agreements": 8,
+          "agreement_rate": 1.0
+        },
+        "acceptance": {
+          "support": 6,
+          "agreements": 4,
+          "agreement_rate": 0.6666666666666666
+        }
+      },
+      "confusion_matrix": {
+        "rows_strict": [
+          "anxiety",
+          "sadness",
+          "anger",
+          "hope",
+          "guilt",
+          "denial",
+          "acceptance"
+        ],
+        "columns_human": [
+          "anxiety",
+          "sadness",
+          "anger",
+          "hope",
+          "guilt",
+          "denial",
+          "acceptance"
+        ],
+        "values": [
+          [
+            11,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            9,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            4,
+            5,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            10,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            11,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            8,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            4
+          ]
+        ]
+      },
+      "human_confirmed_item_ids": [
+        "syn_12765fecec52",
+        "syn_4ca38ba84ac4",
+        "syn_526d8824f338",
+        "syn_91620499f0af",
+        "syn_0e967fd6de7c",
+        "syn_b6fcbe1fea38",
+        "syn_5e62ff09bfe6",
+        "syn_8dbf3cce1c57",
+        "syn_bb1e53182139",
+        "syn_149a12c74ada",
+        "syn_84e8cdf5c2fa",
+        "syn_11678afc8e02",
+        "syn_fccf07ed9ce0",
+        "syn_ddf88bc292f0",
+        "syn_dfa4090485d9",
+        "syn_9f61baa17170",
+        "syn_d88991d3ea45",
+        "syn_2825c138e51e",
+        "syn_4b7e8de5fe78",
+        "syn_2b18e2b93710",
+        "syn_8c423be89a8e",
+        "syn_d13c730bceee",
+        "syn_ac91cffe0e83",
+        "syn_6a589f2d448f",
+        "syn_967ab53f0a70",
+        "syn_52d835e20c4e",
+        "syn_a8d1b20a4b3b",
+        "syn_b4e336d95200",
+        "syn_f6b576638a17",
+        "syn_3869063a9458",
+        "syn_31395b32ea69",
+        "syn_74f2f16ef48b",
+        "syn_041c03b38f4a",
+        "syn_5c6b084671f8",
+        "syn_e5c900d4bf48",
+        "syn_e814daa3a15e",
+        "syn_9fbb829526f7",
+        "syn_27f5cf12a27f",
+        "syn_751bc5ef3f5a",
+        "syn_b4c7be01db0d",
+        "syn_7d11bee27a40",
+        "syn_4803e0ab884d",
+        "syn_b7a8df175c29",
+        "syn_bd3be44b9af1",
+        "syn_59bb2a100389",
+        "syn_bbd71e3fe251",
+        "syn_a915159e6e2c",
+        "syn_36fead555aed",
+        "syn_2407d747e6ea",
+        "syn_25104a38ca84",
+        "syn_49d8baff8a38",
+        "syn_5927a16943c3",
+        "syn_66af260b865b",
+        "syn_d06e67e2a606",
+        "syn_0555c5f05568",
+        "syn_561671392a89",
+        "syn_15021c6114d1",
+        "syn_08efe89b77c1"
+      ]
+    },
+    "distress": {
+      "exact_agreement_count": 56,
+      "exact_agreement": 0.835820895522388,
+      "weighted_kappa_linear": 0.8038328453553367,
+      "weighted_kappa_quadratic": 0.8616482072461047,
+      "mean_absolute_ordinal_difference": 0.16417910447761194,
+      "within_one_level_count": 67,
+      "within_one_level_agreement": 1.0,
+      "ambiguous_count": 35,
+      "ambiguous_rate": 0.5223880597014925,
+      "mean_human_confidence": 4.044776119402985,
+      "per_class_agreement": {
+        "low": {
+          "support": 13,
+          "agreements": 12,
+          "agreement_rate": 0.9230769230769231
+        },
+        "medium": {
+          "support": 31,
+          "agreements": 21,
+          "agreement_rate": 0.6774193548387096
+        },
+        "high": {
+          "support": 23,
+          "agreements": 23,
+          "agreement_rate": 1.0
+        }
+      },
+      "confusion_matrix": {
+        "rows_strict": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "columns_human": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "values": [
+          [
+            12,
+            1,
+            0
+          ],
+          [
+            8,
+            21,
+            2
+          ],
+          [
+            0,
+            0,
+            23
+          ]
+        ]
+      },
+      "human_confirmed_item_ids": [
+        "syn_12765fecec52",
+        "syn_4ca38ba84ac4",
+        "syn_526d8824f338",
+        "syn_0e967fd6de7c",
+        "syn_b6fcbe1fea38",
+        "syn_5e62ff09bfe6",
+        "syn_8dbf3cce1c57",
+        "syn_bb1e53182139",
+        "syn_149a12c74ada",
+        "syn_fccf07ed9ce0",
+        "syn_ddf88bc292f0",
+        "syn_dfa4090485d9",
+        "syn_9f61baa17170",
+        "syn_d88991d3ea45",
+        "syn_2825c138e51e",
+        "syn_4b7e8de5fe78",
+        "syn_0fb770d85a19",
+        "syn_8c423be89a8e",
+        "syn_d13c730bceee",
+        "syn_ac91cffe0e83",
+        "syn_c32985446d37",
+        "syn_fed47e7cad4d",
+        "syn_c2ed236d472c",
+        "syn_6a589f2d448f",
+        "syn_11763abdec6f",
+        "syn_967ab53f0a70",
+        "syn_47d1a298d60e",
+        "syn_a8d1b20a4b3b",
+        "syn_b4e336d95200",
+        "syn_3869063a9458",
+        "syn_31395b32ea69",
+        "syn_1d68803d372d",
+        "syn_74f2f16ef48b",
+        "syn_041c03b38f4a",
+        "syn_5c6b084671f8",
+        "syn_e5c900d4bf48",
+        "syn_e814daa3a15e",
+        "syn_9fbb829526f7",
+        "syn_27f5cf12a27f",
+        "syn_751bc5ef3f5a",
+        "syn_b4c7be01db0d",
+        "syn_7d11bee27a40",
+        "syn_4803e0ab884d",
+        "syn_b7a8df175c29",
+        "syn_59bb2a100389",
+        "syn_bbd71e3fe251",
+        "syn_36fead555aed",
+        "syn_2407d747e6ea",
+        "syn_25104a38ca84",
+        "syn_49d8baff8a38",
+        "syn_5927a16943c3",
+        "syn_c3a5c2208cb3",
+        "syn_358662bea40a",
+        "syn_561671392a89",
+        "syn_15021c6114d1",
+        "syn_08efe89b77c1"
+      ]
+    },
+    "joint": {
+      "joint_exact_count": 47,
+      "joint_exact_agreement": 0.7014925373134329,
+      "response_only_agreement_count": 11,
+      "distress_only_agreement_count": 9,
+      "neither_agreement_count": 0,
+      "human_confirmed_item_ids": [
+        "syn_12765fecec52",
+        "syn_4ca38ba84ac4",
+        "syn_526d8824f338",
+        "syn_0e967fd6de7c",
+        "syn_b6fcbe1fea38",
+        "syn_5e62ff09bfe6",
+        "syn_8dbf3cce1c57",
+        "syn_bb1e53182139",
+        "syn_149a12c74ada",
+        "syn_fccf07ed9ce0",
+        "syn_ddf88bc292f0",
+        "syn_dfa4090485d9",
+        "syn_9f61baa17170",
+        "syn_d88991d3ea45",
+        "syn_2825c138e51e",
+        "syn_4b7e8de5fe78",
+        "syn_8c423be89a8e",
+        "syn_d13c730bceee",
+        "syn_ac91cffe0e83",
+        "syn_6a589f2d448f",
+        "syn_967ab53f0a70",
+        "syn_a8d1b20a4b3b",
+        "syn_b4e336d95200",
+        "syn_3869063a9458",
+        "syn_31395b32ea69",
+        "syn_74f2f16ef48b",
+        "syn_041c03b38f4a",
+        "syn_5c6b084671f8",
+        "syn_e5c900d4bf48",
+        "syn_e814daa3a15e",
+        "syn_9fbb829526f7",
+        "syn_27f5cf12a27f",
+        "syn_751bc5ef3f5a",
+        "syn_b4c7be01db0d",
+        "syn_7d11bee27a40",
+        "syn_4803e0ab884d",
+        "syn_b7a8df175c29",
+        "syn_59bb2a100389",
+        "syn_bbd71e3fe251",
+        "syn_36fead555aed",
+        "syn_2407d747e6ea",
+        "syn_25104a38ca84",
+        "syn_49d8baff8a38",
+        "syn_5927a16943c3",
+        "syn_561671392a89",
+        "syn_15021c6114d1",
+        "syn_08efe89b77c1"
+      ]
+    },
+    "annotation_process": {
+      "mean_seconds_per_item": 195.96716417910443,
+      "total_recorded_annotation_seconds": 13129.799999999997
+    }
+  }
+}

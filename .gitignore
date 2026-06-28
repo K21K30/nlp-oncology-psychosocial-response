@@ -1,0 +1,52 @@
+# ── Python ─────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# ── Virtual environment (never commit) ─────────────────
+venv/
+.venv/
+env/
+
+# ── Trained model checkpoints ──────────────────────────
+# Too large for git (multiple seeds x tiers x 2 tasks).
+# Reproduce them with the training scripts (see README).
+models/
+*.pt
+*.bin
+*.safetensors
+
+# ── Hugging Face / Torch caches ────────────────────────
+.cache/
+*.lock
+
+# ── Secrets / environment ──────────────────────────────
+.env
+*.key
+
+# ── OS / editor cruft ──────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ── Logs ───────────────────────────────────────────────
+*.log
+
+# ── Scratch / debug output at repo root (NOT part of the deliverable) ───
+# Regenerable console dumps from pilot runs and the setup check:
+/anger2.txt
+/high2.txt
+/high_check.txt
+/p2_pilot.txt
+/pilot_output.txt
+/setup_report.txt
+# Stray files from accidental shell redirects (safe to delete):
+/bool
+/py
+/list\[str\]
+/list\[dict\[str
+
+# NOTE: data/, results/, and visuals/ are intentionally NOT ignored —
+# the assignment requires them to be present in the repository.

@@ -1,0 +1,44 @@
+# requirements.txt
+# Project: Dominant Psychosocial Response & Distress Classification in Oncology Messages
+# Environment: Windows 11, Python 3.10.10, local virtual environment (NOT Docker),
+#              NVIDIA RTX 5090, CUDA 12.8.
+#
+# Setup (from the repository root):
+#   python -m venv venv
+#   venv\Scripts\activate
+#   pip install -r requirements.txt
+#
+# PyTorch note: the pin below is the CUDA 12.8 build, pulled from the official
+# PyTorch wheel index via the --extra-index-url line. On a CPU-only machine,
+# replace "torch==2.11.0+cu128" with "torch==2.11.0" and delete the
+# --extra-index-url line.
+#
+# Local LLMs (gemma2:27b generator, qwen2.5:32b judge) are served by Ollama,
+# which is installed separately (https://ollama.com), NOT via pip. The
+# gpt-4o-mini judge is called through the OpenAI API; the key is read from a
+# local .env file via python-dotenv.
+
+--extra-index-url https://download.pytorch.org/whl/cu128
+
+# --- Deep learning / transformers (DistilBERT fine-tune + zero-shot BART) -----
+torch==2.11.0+cu128
+transformers==5.12.1
+
+# --- Classical ML / numerics (TF-IDF, LogReg, metrics, bootstrap) -------------
+scikit-learn
+numpy
+
+# --- Visualization (EDA + result figures) ------------------------------------
+matplotlib
+
+# --- LLM generation / judges + .env key loading ------------------------------
+ollama
+openai
+python-dotenv
+
+# --- Utilities ----------------------------------------------------------------
+tqdm
+pandas
+
+# To freeze the exact versions resolved on your machine after install, run:
+#   pip freeze > requirements.lock.txt
