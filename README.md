@@ -52,7 +52,7 @@ The corpus is **fully synthetic** (no real patient data) and was generated and a
 audited corpus is organized into **quality tiers** by how strongly two independent LLM judges agreed
 with the intended label.
 
-Tier files (`data/gen_v6_low_medium/tiers/`):
+Quality tiers:
 
 | Tier | Records | Meaning |
 |------|---------|---------|
@@ -76,7 +76,7 @@ median 31, mean 33.1, max 107 words.
 
 ![Generation attributes](visuals/eda_attributes.png)
 
-**Splits** (`data/gen_v6_low_medium/splits/`, seed 42):
+**Splits** (seed 42):
 
 | Split | Size | Notes |
 |-------|------|-------|
