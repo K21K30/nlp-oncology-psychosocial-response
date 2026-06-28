@@ -69,6 +69,14 @@ median 31, mean 33.1, max 107 words. See `visuals/eda_class_balance.png`,
 > The distributions reflect the generation and auditing pipeline, **not estimated real-world
 > prevalence** of these responses or distress levels in oncology populations.
 
+![Response and distress class balance](visuals/eda_class_balance.png)
+
+![Message length distribution](visuals/eda_length.png)
+
+![Response x distress co-occurrence](visuals/eda_response_distress_heatmap.png)
+
+![Generation attributes](visuals/eda_attributes.png)
+
 **Splits** (`data/gen_v6_low_medium/splits/`, seed 42; see `visuals/eda_splits.png`):
 
 | Split | Size | Notes |
@@ -78,6 +86,8 @@ median 31, mean 33.1, max 107 words. See `visuals/eda_class_balance.png`,
 | train_A | 359 | strict only |
 | train_B | 434 | strict + silver |
 | train_C | 1161 | strict + silver + consensus |
+
+![Split sizes and per-split response composition](visuals/eda_splits.png)
 
 The three training tiers (A/B/C) let us measure whether **more synthetic data of decreasing purity**
 helps. The 67-item test set was **independently re-annotated by a human** (see section 10) to validate
@@ -197,10 +207,16 @@ class-weighted multinomial logistic regression; zero-shot uses no training.
 The lexical-vs-transformer differences were **not resolved** by the 67-item test (paired bootstrap CIs
 included 0). See `visuals/results_response_macroF1.png` and `visuals/results_distress_macroF1.png`.
 
+![Response macro-F1 by model and tier](visuals/results_response_macroF1.png)
+
+![Distress macro-F1 by model and tier](visuals/results_distress_macroF1.png)
+
 **Distress headline.** DistilBERT-B achieved the highest mean distress performance (macro-F1 0.864,
 linear weighted kappa 0.851, MAE 0.113). However, its advantage over TF-IDF-B was not resolved
 reliably on the 67-item test. Both supervised systems substantially and bootstrap-reliably
 outperformed zero-shot BART (`visuals/results_distress_bootstrap.png`).
+
+![Distress bootstrap 95% confidence intervals](visuals/results_distress_bootstrap.png)
 
 **Cross-task reading.** The two tasks responded differently to model family and synthetic-data tier.
 Response labels were highly accessible to a sparse lexical classifier, whereas distress showed a
@@ -217,6 +233,8 @@ See `visuals/results_tier_contrast.png`. **More synthetic data is not uniformly 
 tier depends on the task and the model. For response, DistilBERT had its highest mean on tier C, though
 the C-vs-A difference was not statistically resolved; for distress, consensus data slightly hurt.
 
+![Macro-F1 by synthetic-data tier (A/B/C)](visuals/results_tier_contrast.png)
+
 ### 10.3 Class-weighting control (distress, DistilBERT-B)
 
 Weighted vs. unweighted, same split / seeds / hyperparameters
@@ -228,6 +246,8 @@ Weighted vs. unweighted, same split / seeds / hyperparameters
 | weighted kappa (lin) | 0.851 | 0.828 | +0.023 |
 | MAE (ordinal) | 0.113 | 0.128 | -0.015 (better) |
 | severe (low<->high) | 0.000 | 0.000 | no change |
+
+![Weighted vs. unweighted distress (DistilBERT-B)](visuals/results_distress_weighting_control.png)
 
 Class weighting gives a modest but real gain, concentrated on the harder **low** level (weakest recall
 in the unweighted run), without harming the zero-severe-error profile.
@@ -244,6 +264,8 @@ in the unweighted run), without harming the zero-severe-error profile.
   systematic **human-low -> model-medium** shift (`visuals/results_distress_human_confusion.png`).
   high distress is detected reliably on the synthetic test set, and extreme low<->high errors are
   essentially absent in the trained models.
+
+![Distress confusion: model vs. human labels](visuals/results_distress_human_confusion.png)
 
 ### 10.5 Human validation (67-item test, single blind annotator)
 
