@@ -6,8 +6,6 @@ dataset** for it, and compares **three model families** (a sparse lexical baseli
 transformer, and a zero-shot model) with a rigorous, bootstrap-based evaluation and an independent
 human validation.
 
-![Visual abstract](visuals/visual_abstract.png)
-
 ---
 
 ## 1. Project motivation
@@ -42,9 +40,11 @@ human validation. This is not a re-run of a public benchmark.
 
 ## 3. Visual abstract
 
-See `visuals/visual_abstract.png` (shown above): the end-to-end pipeline (attribute-based generation
--> dual-LLM-judge audit -> quality tiers -> splits + blind human check -> three model families ->
-bootstrap evaluation) and the headline results for both tasks.
+![Visual abstract: pipeline and headline results](visuals/visual_abstract.png)
+
+The end-to-end pipeline (attribute-based generation -> dual-LLM-judge audit -> quality tiers ->
+splits + blind human check -> three model families -> bootstrap evaluation) and the headline results
+for both tasks.
 
 ## 4. Datasets used or collected
 
@@ -63,8 +63,7 @@ Tier files (`data/gen_v6_low_medium/tiers/`):
 
 **Class balance (model-ready, n = 1273).** Response: anxiety 458, guilt 234, hope 201, sadness 177,
 anger 90, denial 57, acceptance 56. Distress: low 333, medium 694, high 246. Message length: min 4,
-median 31, mean 33.1, max 107 words. See `visuals/eda_class_balance.png`,
-`visuals/eda_length.png`, `visuals/eda_response_distress_heatmap.png`, `visuals/eda_attributes.png`.
+median 31, mean 33.1, max 107 words.
 
 > The distributions reflect the generation and auditing pipeline, **not estimated real-world
 > prevalence** of these responses or distress levels in oncology populations.
@@ -77,7 +76,7 @@ median 31, mean 33.1, max 107 words. See `visuals/eda_class_balance.png`,
 
 ![Generation attributes](visuals/eda_attributes.png)
 
-**Splits** (`data/gen_v6_low_medium/splits/`, seed 42; see `visuals/eda_splits.png`):
+**Splits** (`data/gen_v6_low_medium/splits/`, seed 42):
 
 | Split | Size | Notes |
 |-------|------|-------|
@@ -205,7 +204,7 @@ class-weighted multinomial logistic regression; zero-shot uses no training.
 | Distress | TF-IDF-nom-B = 0.805 | **DistilBERT-B = 0.864** | BART = 0.468 | **both** supervised systems reliably > zero-shot |
 
 The lexical-vs-transformer differences were **not resolved** by the 67-item test (paired bootstrap CIs
-included 0). See `visuals/results_response_macroF1.png` and `visuals/results_distress_macroF1.png`.
+included 0).
 
 ![Response macro-F1 by model and tier](visuals/results_response_macroF1.png)
 
@@ -214,7 +213,7 @@ included 0). See `visuals/results_response_macroF1.png` and `visuals/results_dis
 **Distress headline.** DistilBERT-B achieved the highest mean distress performance (macro-F1 0.864,
 linear weighted kappa 0.851, MAE 0.113). However, its advantage over TF-IDF-B was not resolved
 reliably on the 67-item test. Both supervised systems substantially and bootstrap-reliably
-outperformed zero-shot BART (`visuals/results_distress_bootstrap.png`).
+outperformed zero-shot BART.
 
 ![Distress bootstrap 95% confidence intervals](visuals/results_distress_bootstrap.png)
 
@@ -229,7 +228,7 @@ distress requires a transformer.
 
 DistilBERT macro-F1 by tier: response A 0.768 / B 0.752 / **C 0.834**; distress A 0.806 / **B 0.864**
 / C 0.827. TF-IDF peaks at **B** in both tasks (response 0.856, distress 0.805).
-See `visuals/results_tier_contrast.png`. **More synthetic data is not uniformly better:** the peak
+**More synthetic data is not uniformly better:** the peak
 tier depends on the task and the model. For response, DistilBERT had its highest mean on tier C, though
 the C-vs-A difference was not statistically resolved; for distress, consensus data slightly hurt.
 
@@ -237,8 +236,7 @@ the C-vs-A difference was not statistically resolved; for distress, consensus da
 
 ### 10.3 Class-weighting control (distress, DistilBERT-B)
 
-Weighted vs. unweighted, same split / seeds / hyperparameters
-(`visuals/results_distress_weighting_control.png`):
+Weighted vs. unweighted, same split / seeds / hyperparameters:
 
 | metric | weighted-B | unweighted-B | delta |
 |--------|-----------|--------------|-------|
@@ -261,7 +259,7 @@ in the unweighted run), without harming the zero-severe-error profile.
 - **Response - anxiety over-prediction.** the consensus tier (C) inflated anxiety in training; the
   predicted/support ratio rose. The cause is **data composition**, not the class weights.
 - **Distress - low/medium boundary.** the dominant disagreement, both vs. human and across models:
-  systematic **human-low -> model-medium** shift (`visuals/results_distress_human_confusion.png`).
+  systematic **human-low -> model-medium** shift.
   high distress is detected reliably on the synthetic test set, and extreme low<->high errors are
   essentially absent in the trained models.
 
