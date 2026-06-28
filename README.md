@@ -1,5 +1,12 @@
 # Dominant Psychosocial Response & Distress Classification in Oncology-Related Messages
 
+![Python](https://img.shields.io/badge/Python-3.10.10-3776AB?logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.11.0%2Bcu128-EE4C2C?logo=pytorch&logoColor=white)
+![CUDA](https://img.shields.io/badge/CUDA-12.8-76B900?logo=nvidia&logoColor=white)
+![Data](https://img.shields.io/badge/data-100%25%20synthetic-8A2BE2)
+![Task](https://img.shields.io/badge/task-7--class%20%2B%203--level%20ordinal-0A7E8C)
+![Status](https://img.shields.io/badge/status-research%20prototype-FF8C00)
+
 An NLP course project (HIT, LLM/GenAI course). The project defines a **novel, two-label text
 classification task** on oncology-related messages, builds a **fully synthetic, label-leakage-controlled
 dataset** for it, and compares **three model families** (a sparse lexical baseline, a fine-tuned
@@ -8,7 +15,7 @@ human validation.
 
 ---
 
-## 1. Project motivation
+## 🎯 1. Project motivation
 
 A cancer diagnosis carries a heavy psychosocial burden, and supportive-care teams increasingly want
 to triage the emotional state behind patient-generated text (forum posts, messages, intake notes).
@@ -18,7 +25,7 @@ labeled dataset** for this specific framing, and emotional labels are **subjecti
 annotate. This project therefore generates its own data synthetically and studies which modelling
 approach is actually justified for the task.
 
-## 2. Problem statement
+## 📋 2. Problem statement
 
 Given a single oncology-related message in English, predict **two labels**:
 
@@ -38,7 +45,7 @@ prior cancer peer-support emotion classification based on broad sentiment catego
 intensity using an attribute-controlled synthetic corpus, dual-LLM auditing, quality tiers, and blind
 human validation. This is not a re-run of a public benchmark.
 
-## 3. Visual abstract
+## 🖼️ 3. Visual abstract
 
 ![Visual abstract: pipeline and headline results](visuals/visual_abstract.png)
 
@@ -46,7 +53,7 @@ The end-to-end pipeline (attribute-based generation -> dual-LLM-judge audit -> q
 splits + blind human check -> three model families -> bootstrap evaluation) and the headline results
 for both tasks.
 
-## 4. Datasets used or collected
+## 📊 4. Datasets used or collected
 
 The corpus is **fully synthetic** (no real patient data) and was generated and audited locally. The
 audited corpus is organized into **quality tiers** by how strongly two independent LLM judges agreed
@@ -65,6 +72,7 @@ Quality tiers:
 anger 90, denial 57, acceptance 56. Distress: low 333, medium 694, high 246. Message length: min 4,
 median 31, mean 33.1, max 107 words.
 
+> [!WARNING]
 > The distributions reflect the generation and auditing pipeline, **not estimated real-world
 > prevalence** of these responses or distress levels in oncology populations.
 
@@ -92,7 +100,7 @@ The three training tiers (A/B/C) let us measure whether **more synthetic data of
 helps. The 67-item test set was **independently re-annotated by a human** (see section 10) to validate
 the synthetic labels before any model was trusted.
 
-## 5. Data augmentation and generation methods
+## 🧬 5. Data augmentation and generation methods
 
 The method is **attribute-based synthetic generation with dual-LLM-judge validation** and a strict
 **label-leakage ban**:
@@ -117,7 +125,7 @@ This mirrors three lines of prior work: attribute-conditioned data generation, t
 of synthetic data to **label subjectivity**, and the **LLM-as-judge** paradigm for scalable
 annotation (see `INTERIM_PAPERS.md` for the reviewed references).
 
-## 6. Input / Output examples
+## 💬 6. Input / Output examples
 
 Input is the raw message string; output is the pair (response, distress). Examples below are
 representative of the corpus (synthetic, leakage-controlled - note that none names the target
@@ -138,7 +146,7 @@ emotion):
 JSON record schema (corpus): `text`, `intended_response`, `intended_distress`, `final_response`,
 `final_distress`, `judge_a`, `judge_b`, `quality_tier`, `attributes{...}`, `id`.
 
-## 7. Models and pipelines used
+## 🤖 7. Models and pipelines used
 
 Three model families are compared on **both** tasks (per the course requirement: fine-tuned vs.
 off-the-shelf):
@@ -159,7 +167,7 @@ weights (`p4`) -> blind human check (`p5`) -> fine-tuning (`p6` response, `p7` d
 diagnostics (`p8`) -> baselines (`p9` response, `p9b` distress) -> bootstrap (`p10` response, `p11`
 distress) -> human-reference evaluation (`p12`) -> EDA (`p13`).
 
-## 8. Training process and parameters
+## ⚙️ 8. Training process and parameters
 
 DistilBERT fine-tuning (identical regime for both tasks):
 
@@ -180,7 +188,7 @@ For each tier (A/B/C) a separate model is trained; the **weighted vs. unweighted
 isolated with a controlled run on the best distress tier (see Results). TF-IDF + LogReg uses
 class-weighted multinomial logistic regression; zero-shot uses no training.
 
-## 9. Metrics
+## 📐 9. Metrics
 
 - **Primary:** macro-F1 (equal weight to every class; appropriate for imbalanced multiclass data).
 - **Response also:** micro/macro precision/recall/F1, and a **minority macro-F1** =
@@ -194,9 +202,12 @@ class-weighted multinomial logistic regression; zero-shot uses no training.
 - **Human agreement:** Cohen's kappa (response) and weighted kappa (distress) between the blind human
   annotator and the synthetic labels on the 67-item test set.
 
-## 10. Results
+## 🏆 10. Results
 
-### 10.1 Cross-task summary (test macro-F1, 67 items)
+> [!TIP]
+> **Headline.** On response, a sparse **TF-IDF** model leads (macro-F1 **0.856**); on distress, **DistilBERT** leads (**0.864**). Both supervised systems reliably beat zero-shot - but the lexical-vs-transformer gap is **not** statistically resolved on the 67-item test.
+
+### 📈 10.1 Cross-task summary (test macro-F1, 67 items)
 
 | Task | Best lexical | Best transformer | Zero-shot | Reliable conclusion |
 |------|--------------|------------------|-----------|---------------------|
@@ -224,7 +235,7 @@ and zero-shot systems. Distress appeared to benefit more from contextual fine-tu
 classification - but TF-IDF-B still reached 0.805, so this is a descriptive advantage, not proof that
 distress requires a transformer.
 
-### 10.2 Synthetic-data tiers (does more data help?)
+### 🧪 10.2 Synthetic-data tiers (does more data help?)
 
 DistilBERT macro-F1 by tier: response A 0.768 / B 0.752 / **C 0.834**; distress A 0.806 / **B 0.864**
 / C 0.827. TF-IDF peaks at **B** in both tasks (response 0.856, distress 0.805).
@@ -234,7 +245,7 @@ the C-vs-A difference was not statistically resolved; for distress, consensus da
 
 ![Macro-F1 by synthetic-data tier (A/B/C)](visuals/results_tier_contrast.png)
 
-### 10.3 Class-weighting control (distress, DistilBERT-B)
+### ⚖️ 10.3 Class-weighting control (distress, DistilBERT-B)
 
 Weighted vs. unweighted, same split / seeds / hyperparameters:
 
@@ -250,7 +261,7 @@ Weighted vs. unweighted, same split / seeds / hyperparameters:
 Class weighting gives a modest but real gain, concentrated on the harder **low** level (weakest recall
 in the unweighted run), without harming the zero-severe-error profile.
 
-### 10.4 Error analysis (three cases)
+### 🔍 10.4 Error analysis (three cases)
 
 - **Response - anger artifact.** anger has high strict-label F1 but low alignment with the independent
   human reading; the model appears more closely aligned with the dual-judge annotation policy than
@@ -265,7 +276,7 @@ in the unweighted run), without harming the zero-severe-error profile.
 
 ![Distress confusion: model vs. human labels](visuals/results_distress_human_confusion.png)
 
-### 10.5 Human validation (67-item test, single blind annotator)
+### 🧑‍⚖️ 10.5 Human validation (67-item test, single blind annotator)
 
 Response: exact agreement 86.6%, Cohen's kappa 0.84. Distress: exact 83.6%, weighted kappa 0.80
 (linear) / 0.86 (quadratic). Agreement was **strong on human-unambiguous items and substantially
@@ -278,7 +289,7 @@ the low/medium boundary.
 > Human-reference evaluation was based on **one annotator** and therefore measures agreement with one
 > independent reading rather than agreement with a multi-annotator gold standard.
 
-### 10.6 Final cross-task conclusion
+### 🧭 10.6 Final cross-task conclusion
 
 Task-specific synthetic supervision was consistently useful, but its value depended on both the task
 and model family. Sparse lexical models were highly competitive for response classification, while
@@ -286,10 +297,12 @@ distress showed a larger descriptive advantage for contextual fine-tuning. Incre
 consensus-labelled data did not uniformly improve performance and sometimes transferred
 annotation-policy artifacts or class imbalance. Human validation showed that the largest residual
 errors were concentrated in semantically ambiguous boundaries rather than extreme ordinal errors.
-These classifiers are research prototypes evaluated on synthetic text and are not validated for
-clinical triage or individual-level decision-making.
 
-## 11. Repository structure
+> [!CAUTION]
+> These classifiers are **research prototypes** evaluated on synthetic text and are **not validated
+> for clinical triage** or individual-level decision-making.
+
+## 🗂️ 11. Repository structure
 
 ```
 nlp-oncology-psychosocial-response/
@@ -347,14 +360,14 @@ nlp-oncology-psychosocial-response/
 Trained model checkpoints under `models/` are **not** committed (too large); they are reproduced by
 the training scripts. See `.gitignore`.
 
-## 12. Team Members
+## 👥 12. Team Members
 
 - **K.T.** - sole author (data generation, modelling, evaluation, analysis, write-up).
 - Course: HIT LLM/GenAI course (A.A.). Solo project.
 
 ---
 
-## Reproducibility
+## 🔁 Reproducibility
 
 **Environment:**
 
