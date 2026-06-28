@@ -356,10 +356,12 @@ the training scripts. See `.gitignore`.
 
 ## Reproducibility
 
-**Environment:** Windows 11, Python 3.10.10, local virtual environment (not Docker), NVIDIA RTX 5090,
-CUDA 12.8. Key packages: `torch==2.11.0+cu128`, `transformers==5.12.1`, `scikit-learn`, `numpy`,
-`matplotlib`, `tqdm` (full list in `requirements.txt`). Local LLMs via Ollama (`gemma2:27b`,
-`qwen2.5:32b`); `gpt-4o-mini` judge via API.
+**Environment:**
+
+- OS / runtime: Windows 11, Python 3.10.10, local virtual environment (not Docker).
+- Hardware: NVIDIA RTX 5090, CUDA 12.8.
+- Key packages: `torch==2.11.0+cu128`, `transformers==5.12.1`, `scikit-learn`, `numpy`, `matplotlib`, `tqdm` (full list in `requirements.txt`).
+- LLMs: local via Ollama (`gemma2:27b`, `qwen2.5:32b`); `gpt-4o-mini` judge via API.
 
 **Run order (from the project root, with the venv active):**
 
@@ -382,9 +384,19 @@ CUDA 12.8. Key packages: `torch==2.11.0+cu128`, `transformers==5.12.1`, `scikit-
 10. `py p12_distress_human_eval.py` - human-reference evaluation.
 11. `py p13_eda.py` - EDA figures + summary.
 
-Distress weighted-vs-unweighted control:
-`py p7_train_distress.py --train data\gen_v6_low_medium\splits\train_B.jsonl --val ...\validation.jsonl --test ...\test.jsonl --no-weights --out models\distilbert_distress_B_unweighted --tag B_unweighted`
+**Optional - distress weighted-vs-unweighted control:**
 
-**Important:** the 67-item **test set is never used for tuning** (no hyperparameter, threshold, or
-model selection on test). Thresholds and model selection use the 45-item validation set only. All
-randomness is seeded; transformer results are reported as mean +/- std over 5 seeds.
+```bat
+py p7_train_distress.py ^
+  --train data\gen_v6_low_medium\splits\train_B.jsonl ^
+  --val   data\gen_v6_low_medium\splits\validation.jsonl ^
+  --test  data\gen_v6_low_medium\splits\test.jsonl ^
+  --no-weights ^
+  --out   models\distilbert_distress_B_unweighted ^
+  --tag   B_unweighted
+```
+
+> [!IMPORTANT]
+> The 67-item **test set is never used for tuning** - no hyperparameter, threshold, or model
+> selection on test. Thresholds and model selection use the 45-item validation set only. All
+> randomness is seeded; transformer results are reported as mean ± std over 5 seeds.
